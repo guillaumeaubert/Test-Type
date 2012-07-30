@@ -47,11 +47,19 @@ our $VERSION = '1.0.0';
 		$variable,
 		name => 'Test variable',
 	);
+	
+	# Test coderefs.
+	ok_coderef( $variable );
+	ok_coderef(
+		$variable,
+		name => 'Test variable',
+	);
 
 =cut
 
 our @EXPORT = qw(
 	ok_arrayref
+	ok_coderef
 	ok_hashref
 	ok_string
 );
@@ -265,6 +273,46 @@ sub ok_hashref
 			no_blessing           => $no_blessing,
 		),
 		$name . ' is a hashref' . $test_properties . '.',
+	);
+}
+
+
+=head2 ok_coderef()
+
+Test if the variable passed is an coderef that can be dereferenced into a block
+of code.
+
+	ok_coderef( $variable );
+	
+	ok_coderef(
+		$variable,
+		name => 'Test variable',
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=back
+
+=cut
+
+sub ok_coderef
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_coderef(
+			$variable,
+		),
+		$name . ' is a coderef.',
 	);
 }
 
