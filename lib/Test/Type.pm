@@ -33,10 +33,18 @@ our $VERSION = '1.0.0';
 		$variable,
 		name => 'My variable',
 	);
+	
+	# Test arrayrefs.
+	ok_arrayref( $variable );
+	ok_arrayref(
+		$variable,
+		name => 'My variable',
+	);
 
 =cut
 
 our @EXPORT = qw(
+	ok_arrayref
 	ok_string
 );
 
@@ -98,6 +106,93 @@ sub ok_string
 			allow_empty => $allow_empty,
 		),
 		$name . ' is a string' . $test_properties . '.',
+	);
+}
+
+
+=head2 ok_arrayref()
+
+Test if the variable passed is an arrayref that can be dereferenced into an
+array.
+
+	ok_arrayref( $variable );
+	
+	ok_arrayref(
+		$variable,
+		name => 'My variable',
+	);
+	
+	ok_arrayref(
+		$variable,
+		allow_empty => 1,
+		no_blessing => 0,
+	);
+	
+	# Check if the variable is an arrayref of hashrefs.
+	ok_arrayref(
+		$variable,
+		allow_empty           => 1,
+		no_blessing           => 0,
+		element_validate_type =>
+			sub
+			{
+				return Data::Validate::Type::is_hashref( $_[0] );
+			},
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=item * allow_empty
+
+Boolean, default 1. Allow the array to be empty or not.
+
+=item * no_blessing
+
+Boolean, default 0. Require that the variable is not blessed.
+
+=item * element_validate_type
+
+None by default. Set it to a coderef to validate the elements in the array.
+The coderef will be passed the element to validate as first parameter, and it
+must return a boolean indicating whether the element was valid or not.
+
+=back
+
+=cut
+
+sub ok_arrayref
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
+	my $no_blessing = delete( $args{'no_blessing'} ) // 0;
+	my $element_validate_type = delete( $args{'element_validate_type'} );
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	my @test_properties = ();
+	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
+	push( @test_properties, $no_blessing ? 'no blessing' : 'allow blessed' );
+	push( @test_properties, 'validate elements' )
+		if $element_validate_type;
+	my $test_properties = scalar( @test_properties ) == 0
+		? ''
+		: ' (' . join( ', ', @test_properties ) . ')';
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_arrayref(
+			$variable,
+			allow_empty           => $allow_empty,
+			no_blessing           => $no_blessing,
+			element_validate_type => $element_validate_type,
+		),
+		$name . ' is an arrayref' . $test_properties . '.',
 	);
 }
 
