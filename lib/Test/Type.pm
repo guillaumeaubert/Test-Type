@@ -26,14 +26,80 @@ our $VERSION = '1.0.0';
 =head1 SYNOPSIS
 
 	use Test::Type;
+	
+	# Test strings.
+	ok_string( $variable );
+	ok_string(
+		$variable,
+		name => 'My variable',
+	);
 
 =cut
 
 our @EXPORT = qw(
+	ok_string
 );
 
 
 =head1 FUNCTIONS
+
+=head2 ok_string()
+
+Test if the variable passed is a string.
+
+	ok_string(
+		$variable,
+	);
+	
+	ok_string(
+		$variable,
+		name => 'My variable',
+	);
+	
+	ok_string(
+		$variable,
+		name        => 'My variable',
+		allow_empty => 1,
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=item * allow_empty
+
+Boolean, default 1. Allow the string to be empty or not.
+
+=back
+
+=cut
+
+sub ok_string
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	my @test_properties = ();
+	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
+	my $test_properties = scalar( @test_properties ) == 0
+		? ''
+		: ' (' . join( ', ', @test_properties ) . ')';
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_string(
+			$variable,
+			allow_empty => $allow_empty,
+		),
+		$name . ' is a string' . $test_properties . '.',
+	);
+}
 
 
 =head1 AUTHOR
