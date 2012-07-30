@@ -54,6 +54,13 @@ our $VERSION = '1.0.0';
 		$variable,
 		name => 'Test variable',
 	);
+	
+	# Test numbers.
+	ok_number( $variable );
+	ok_number(
+		$variable,
+		name => 'Test variable',
+	);
 
 =cut
 
@@ -61,6 +68,7 @@ our @EXPORT = qw(
 	ok_arrayref
 	ok_coderef
 	ok_hashref
+	ok_number
 	ok_string
 );
 
@@ -313,6 +321,76 @@ sub ok_coderef
 			$variable,
 		),
 		$name . ' is a coderef.',
+	);
+}
+
+
+=head2 ok_number()
+
+Test if the variable passed is a number.
+
+	ok_number( $variable );
+	
+	ok_number(
+		$variable,
+		name => 'Test variable',
+	);
+	
+	ok_number(
+		$variable,
+		positive => 1,
+	);
+	
+	ok_number(
+		$variable,
+		strictly_positive => 1,
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=item * strictly_positive
+
+Boolean, default 0. Set to 1 to check for a strictly positive number.
+
+=item * positive
+
+Boolean, default 0. Set to 1 to check for a positive number.
+
+=back
+
+=cut
+
+sub ok_number
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	my $strictly_positive = delete( $args{'strictly_positive'} ) // 0;
+	my $positive = delete( $args{'positive'} ) // 0;
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	my @test_properties = ();
+	push( @test_properties, 'strictly positive' )
+		if $strictly_positive;
+	push( @test_properties, 'positive' )
+		if $positive;
+	my $test_properties = scalar( @test_properties ) == 0
+		? ''
+		: ' (' . join( ', ', @test_properties ) . ')';
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_number(
+			$variable,
+			strictly_positive => $strictly_positive,
+			positive          => $positive,
+		),
+		$name . ' is a number' . $test_properties . '.',
 	);
 }
 
