@@ -21,7 +21,7 @@ name: Test-Type
 provides:
   Test::Type:
     file: lib/Test/Type.pm
-    version: v1.0.0
+    version: v1.0.1
 requires:
   perl: 5.006
 resources:
@@ -29,4 +29,4 @@ resources:
   homepage: https://metacpan.org/release/Test-Type
   license: http://opensource.org/licenses/artistic-license.php
   repository: https://sourceforge.net/p/perl-test-type/code
-version: v1.0.0
+version: v1.0.1

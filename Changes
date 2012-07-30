@@ -1,4 +1,9 @@
 Revision history for Test-Type
 
+v1.0.1  07/30/2012
+        * Made code portable on pre-5.10 versions of Perl (RT #78657).
+          Thanks to dirkus@yo****.com for reporting the problem!
+        * Updated dependency version for Data::Validate::Type.
+
 v1.0.0  07/29/2012
         * Public release.
