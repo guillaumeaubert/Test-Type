@@ -1,0 +1,22 @@
+.perlcriticrc
+Build.PL
+Changes
+ignore.txt
+lib/Test/Type.pm
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.json
+META.yml
+README
+t/00-load.t
+t/10-ok_string.t
+t/20-ok_arrayref.t
+t/30-ok_hashref.t
+t/40-ok_coderef.t
+t/50-ok_number.t
+t/60-ok_instance.t
+t/manifest.t
+t/perlcritic.t
+t/pod.t
+t/pod-coverage.t
