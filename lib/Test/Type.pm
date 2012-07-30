@@ -75,13 +75,14 @@ our $VERSION = '1.0.0';
 
 =cut
 
-our @EXPORT = qw(
-	ok_arrayref
-	ok_coderef
-	ok_hashref
-	ok_instance
-	ok_number
-	ok_string
+our @EXPORT = ## no critic (Modules::ProhibitAutomaticExportation)
+(
+	'ok_arrayref',
+	'ok_coderef',
+	'ok_hashref',
+	'ok_instance',
+	'ok_number',
+	'ok_string',
 );
 
 
