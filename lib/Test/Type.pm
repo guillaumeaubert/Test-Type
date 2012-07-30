@@ -126,8 +126,12 @@ Boolean, default 1. Allow the string to be empty or not.
 sub ok_string
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
-	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
+	my $allow_empty = delete( $args{'allow_empty'} );
+	$allow_empty = 1 if !defined( $allow_empty );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
 	
@@ -206,9 +210,14 @@ must return a boolean indicating whether the element was valid or not.
 sub ok_arrayref
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
-	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
-	my $no_blessing = delete( $args{'no_blessing'} ) // 0;
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
+	my $allow_empty = delete( $args{'allow_empty'} );
+	$allow_empty = 1 if !defined( $allow_empty );
+	my $no_blessing = delete( $args{'no_blessing'} );
+	$no_blessing = 0 if !defined( $no_blessing );
 	my $element_validate_type = delete( $args{'element_validate_type'} );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
@@ -274,9 +283,14 @@ Boolean, default 0. Require that the variable is not blessed.
 sub ok_hashref
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
-	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
-	my $no_blessing = delete( $args{'no_blessing'} ) // 0;
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
+	my $allow_empty = delete( $args{'allow_empty'} );
+	$allow_empty = 1 if !defined( $allow_empty );
+	my $no_blessing = delete( $args{'no_blessing'} );
+	$no_blessing =  0 if !defined( $no_blessing );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
 	
@@ -325,7 +339,10 @@ Optional, the name of the variable being tested.
 sub ok_coderef
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
 	
@@ -382,9 +399,14 @@ Boolean, default 0. Set to 1 to check for a positive number.
 sub ok_number
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
-	my $strictly_positive = delete( $args{'strictly_positive'} ) // 0;
-	my $positive = delete( $args{'positive'} ) // 0;
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
+	my $strictly_positive = delete( $args{'strictly_positive'} );
+	$strictly_positive = 0 if !defined( $strictly_positive );
+	my $positive = delete( $args{'positive'} );
+	$positive = 0 if !defined( $positive );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
 	
@@ -445,7 +467,10 @@ Required, the name of the class to check the variable against.
 sub ok_instance
 {
 	my ( $variable, %args ) = @_;
-	my $name = delete( $args{'name'} ) // 'Variable';
+	
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
 	my $class = delete( $args{'class'} );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
