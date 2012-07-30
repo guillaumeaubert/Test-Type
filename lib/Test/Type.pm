@@ -61,6 +61,17 @@ our $VERSION = '1.0.0';
 		$variable,
 		name => 'Test variable',
 	);
+	
+	# Test instances.
+	ok_instance(
+		$variable,
+		class => $class,
+	);
+	ok_instance(
+		$variable,
+		name  => 'Test variable',
+		class => $class,
+	);
 
 =cut
 
@@ -68,6 +79,7 @@ our @EXPORT = qw(
 	ok_arrayref
 	ok_coderef
 	ok_hashref
+	ok_instance
 	ok_number
 	ok_string
 );
@@ -391,6 +403,58 @@ sub ok_number
 			positive          => $positive,
 		),
 		$name . ' is a number' . $test_properties . '.',
+	);
+}
+
+
+=head2 ok_instance()
+
+Test if the variable is an instance of the given class.
+
+Note that this handles inheritance properly, so it will succeed if the
+variable is an instance of a subclass of the class given.
+
+	ok_instance(
+		$variable,
+		class => $class,
+	);
+	
+	ok_instance(
+		$variable,
+		name  => 'Test variable',
+		class => $class,
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=item * class
+
+Required, the name of the class to check the variable against.
+
+=back
+
+=cut
+
+sub ok_instance
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	my $class = delete( $args{'class'} );
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_instance(
+			$variable,
+			class => $class,
+		),
+		$name . ' is an instance of ' . $class . '.',
 	);
 }
 
