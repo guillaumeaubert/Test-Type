@@ -40,11 +40,19 @@ our $VERSION = '1.0.0';
 		$variable,
 		name => 'My variable',
 	);
+	
+	# Test hashrefs.
+	ok_hashref( $variable );
+	ok_hashref(
+		$variable,
+		name => 'Test variable',
+	);
 
 =cut
 
 our @EXPORT = qw(
 	ok_arrayref
+	ok_hashref
 	ok_string
 );
 
@@ -193,6 +201,70 @@ sub ok_arrayref
 			element_validate_type => $element_validate_type,
 		),
 		$name . ' is an arrayref' . $test_properties . '.',
+	);
+}
+
+
+=head2 ok_hashref()
+
+Test if the variable passed is a hashref that can be dereferenced into a hash.
+
+	ok_hashref( $variable );
+	
+	ok_hashref(
+		$variable,
+		name => 'Test variable',
+	);
+	
+	ok_hashref(
+		$variable,
+		allow_empty => 1,
+		no_blessing => 0,
+	);
+
+Parameters:
+
+=over 4
+
+=item * name
+
+Optional, the name of the variable being tested.
+
+=item * allow_empty
+
+Boolean, default 1. Allow the array to be empty or not.
+
+=item * no_blessing
+
+Boolean, default 0. Require that the variable is not blessed.
+
+=back
+
+=cut
+
+sub ok_hashref
+{
+	my ( $variable, %args ) = @_;
+	my $name = delete( $args{'name'} ) // 'Variable';
+	my $allow_empty = delete( $args{'allow_empty'} ) // 1;
+	my $no_blessing = delete( $args{'no_blessing'} ) // 0;
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+	
+	my @test_properties = ();
+	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
+	push( @test_properties, $no_blessing ? 'no blessing' : 'allow blessed' );
+	my $test_properties = scalar( @test_properties ) == 0
+		? ''
+		: ' (' . join( ', ', @test_properties ) . ')';
+	
+	return Test::More::ok(
+		Data::Validate::Type::is_hashref(
+			$variable,
+			allow_empty           => $allow_empty,
+			no_blessing           => $no_blessing,
+		),
+		$name . ' is a hashref' . $test_properties . '.',
 	);
 }
 
