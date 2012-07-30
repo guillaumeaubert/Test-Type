@@ -1,0 +1,58 @@
+{
+   "abstract" : "Functions to validate data types in test files.",
+   "author" : [
+      "Guillaume Aubert <aubertg@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120530",
+   "license" : [
+      "artistic_1"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Test-Type",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Carp" : "0",
+            "Data::Validate::Type" : "1.000005",
+            "Exporter" : "0",
+            "File::Spec" : "0",
+            "Test::Builder::Tester" : "0",
+            "Test::More" : "0.94"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "perl" : "5.006"
+         }
+      }
+   },
+   "provides" : {
+      "Test::Type" : {
+         "file" : "lib/Test/Type.pm",
+         "version" : "v1.0.0"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type"
+      },
+      "homepage" : "https://metacpan.org/release/Test-Type",
+      "license" : [
+         "http://opensource.org/licenses/artistic-license.php"
+      ],
+      "repository" : {
+         "url" : "https://sourceforge.net/p/perl-test-type/code"
+      }
+   },
+   "version" : "v1.0.0"
+}
