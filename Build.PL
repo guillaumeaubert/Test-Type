@@ -11,7 +11,7 @@ my $builder = Module::Build->new(
 	build_requires      =>
 	{
 		'Carp'                  => '0',
-		'Data::Validate::Type'  => '1.0.5',
+		'Data::Validate::Type'  => '1.2.0',
 		'Exporter'              => '0',
 		'File::Spec'            => '0',
 		'Test::Builder::Tester' => '0',

@@ -7,7 +7,7 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Test/Type.pm',
           'PREREQ_PM' => {
                            'Carp' => 0,
-                           'Data::Validate::Type' => '1.000005',
+                           'Data::Validate::Type' => '1.002000',
                            'Exporter' => 0,
                            'File::Spec' => 0,
                            'Test::Builder::Tester' => 0,
