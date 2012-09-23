@@ -51,7 +51,7 @@
          "http://www.perlfoundation.org/artistic_license_1_0"
       ],
       "repository" : {
-         "url" : "https://sourceforge.net/p/perl-test-type/code"
+         "url" : "https://github.com/guillaumeaubert/Test-Type"
       }
    },
    "version" : "v1.0.1"

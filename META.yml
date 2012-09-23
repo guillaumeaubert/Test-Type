@@ -28,5 +28,5 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type
   homepage: https://metacpan.org/release/Test-Type
   license: http://www.perlfoundation.org/artistic_license_1_0
-  repository: https://sourceforge.net/p/perl-test-type/code
+  repository: https://github.com/guillaumeaubert/Test-Type
 version: v1.0.1

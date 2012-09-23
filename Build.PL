@@ -34,7 +34,7 @@ my $builder = Module::Build->new(
 	{
 		resources               =>
 		{
-			repository  => 'https://sourceforge.net/p/perl-test-type/code',
+			repository  => 'https://github.com/guillaumeaubert/Test-Type',
 			homepage    => 'https://metacpan.org/release/Test-Type',
 			bugtracker  => 'http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type',
 		},
