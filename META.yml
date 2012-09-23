@@ -3,12 +3,8 @@ abstract: 'Functions to validate data types in test files.'
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
-  Carp: 0
-  Data::Validate::Type: 1.002000
-  Exporter: 0
   File::Spec: 0
   Test::Builder::Tester: 0
-  Test::More: 0.94
 configure_requires:
   Module::Build: 0
 dynamic_config: 1
@@ -23,6 +19,10 @@ provides:
     file: lib/Test/Type.pm
     version: v1.0.1
 requires:
+  Carp: 0
+  Data::Validate::Type: 1.002000
+  Exporter: 0
+  Test::More: 0.94
   perl: 5.006
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type

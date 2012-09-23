@@ -16,12 +16,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Carp" : "0",
-            "Data::Validate::Type" : "1.002000",
-            "Exporter" : "0",
             "File::Spec" : "0",
-            "Test::Builder::Tester" : "0",
-            "Test::More" : "0.94"
+            "Test::Builder::Tester" : "0"
          }
       },
       "configure" : {
@@ -31,6 +27,10 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
+            "Data::Validate::Type" : "1.002000",
+            "Exporter" : "0",
+            "Test::More" : "0.94",
             "perl" : "5.006"
          }
       }

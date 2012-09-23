@@ -10,16 +10,16 @@ my $builder = Module::Build->new(
 	dist_version_from   => 'lib/Test/Type.pm',
 	build_requires      =>
 	{
-		'Carp'                  => '0',
-		'Data::Validate::Type'  => '1.2.0',
-		'Exporter'              => '0',
 		'File::Spec'            => '0',
 		'Test::Builder::Tester' => '0',
-		'Test::More'            => '0.94',
 	},
 	requires            =>
 	{
-		'perl'         => 5.006,
+		'perl'                  => 5.006,
+		'Carp'                  => '0',
+		'Data::Validate::Type'  => '1.2.0',
+		'Exporter'              => '0',
+		'Test::More'            => '0.94',
 	},
 	add_to_cleanup      =>
 	[
