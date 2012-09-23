@@ -1,5 +1,9 @@
 Revision history for Test-Type
 
+v1.0.2  09/22/2012
+        * Moved repository to GitHub.
+        * Cleaned up requires vs build_requires.
+
 v1.0.1  07/30/2012
         * Made code portable on pre-5.10 versions of Perl (RT #78657).
           Thanks to dirkus@yo****.com for reporting the problem!
