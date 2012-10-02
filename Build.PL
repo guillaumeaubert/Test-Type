@@ -18,7 +18,7 @@ my $builder = Module::Build->new(
 		'perl'                  => 5.006,
 		'Carp'                  => '0',
 		'Data::Validate::Type'  => '1.2.0',
-		'Exporter'              => '0',
+		'Exporter'              => '5.57', # required for "use Exporter qw( import );"
 		'Test::More'            => '0.94',
 	},
 	add_to_cleanup      =>
