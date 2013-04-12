@@ -9,8 +9,6 @@ use Test::More tests => 7;
 use Test::Type;
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is a number.' );
 	
 	ok_number(
@@ -24,8 +22,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is a number.' );
 	
 	ok_number(
@@ -39,8 +35,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Test variable is a number.' );
 	
 	ok_number(
@@ -55,8 +49,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is a number.' );
 	
 	ok_number(
@@ -71,8 +63,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is a number (positive).' );
 	
 	ok_number(
@@ -87,8 +77,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is a number.' );
 	
 	ok_number(
@@ -103,8 +91,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is a number (strictly positive).' );
 	
 	ok_number(
