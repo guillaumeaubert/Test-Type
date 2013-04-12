@@ -9,8 +9,6 @@ use Test::More tests => 3;
 use Test::Type;
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is a coderef.' );
 	
 	ok_coderef(
@@ -27,8 +25,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is a coderef.' );
 	
 	ok_coderef(
@@ -42,8 +38,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Test subroutine is a coderef.' );
 	
 	ok_coderef(
