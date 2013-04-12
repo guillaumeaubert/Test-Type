@@ -9,8 +9,6 @@ use Test::More tests => 8;
 use Test::Type;
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is an arrayref (allow empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -24,8 +22,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is an arrayref (allow empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -39,8 +35,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Test variable is an arrayref (allow empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -55,8 +49,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is an arrayref (non-empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -71,8 +63,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is an arrayref (allow empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -87,8 +77,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is an arrayref (allow empty, allow blessed).' );
 	
 	ok_arrayref(
@@ -103,8 +91,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is an arrayref (allow empty, no blessing).' );
 	
 	ok_arrayref(
@@ -119,8 +105,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is an arrayref (allow empty, allow blessed, validate elements).' );
 	
 	ok_arrayref(
