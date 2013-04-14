@@ -530,7 +530,7 @@ L<http://cpanratings.perl.org/d/test-type>
 
 Search CPAN
 
-L<http://search.cpan.org/dist/test-type/>
+L<https://metacpan.org/release/Test-Type>
 
 =back
 
