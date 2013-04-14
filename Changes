@@ -1,5 +1,16 @@
 Revision history for Test-Type
 
+v1.1.2  2013-04-13
+        * Removed Test::More 1.5 specific code that is no longer needed (thanks
+          Colin Newell).
+        * Added Test::FailWarnings to all tests.
+        * Added new release tests.
+        * Moved release tests to xt/, updated Build.PL.
+        * Added info on how to contribute new examples.
+        * Moved request tracker from RT to GitHub.
+        * Changed links from Search CPAN to MetaCPAN.
+        * Added config file for Travis-CI continuous integration.
+
 v1.1.1  2012-10-03
         * Required Exporter v5.57.
 
