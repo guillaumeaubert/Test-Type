@@ -67,7 +67,7 @@ my $builder = $class->new(
 		{
 			repository  => 'https://github.com/guillaumeaubert/Test-Type',
 			homepage    => 'https://metacpan.org/release/Test-Type',
-			bugtracker  => 'http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type',
+			bugtracker  => 'https://github.com/guillaumeaubert/Test-Type/issues',
 		},
 	},
 );

@@ -510,9 +510,9 @@ You can also look for information at:
 
 =item *
 
-RT: CPAN's request tracker
+GitHub (report bugs there)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=test-type>
+L<https://github.com/guillaumeaubert/Test-Type/issues>
 
 =item *
 

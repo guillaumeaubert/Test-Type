@@ -25,7 +25,7 @@ requires:
   Test::More: 0.94
   perl: 5.006
 resources:
-  bugtracker: http://rt.cpan.org/NoAuth/ReportBug.html?Queue=test-type
+  bugtracker: https://github.com/guillaumeaubert/Test-Type/issues
   homepage: https://metacpan.org/release/Test-Type
   license: http://www.gnu.org/licenses/gpl-3.0.txt
   repository: https://github.com/guillaumeaubert/Test-Type
