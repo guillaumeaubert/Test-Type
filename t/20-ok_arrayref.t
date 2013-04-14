@@ -5,8 +5,10 @@ use warnings;
 
 use Data::Validate::Type;
 use Test::Builder::Tester;
+use Test::FailWarnings;
 use Test::More tests => 8;
 use Test::Type;
+
 
 {
 	test_out( 'ok 1 - Variable is an arrayref (allow empty, allow blessed).' );

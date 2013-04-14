@@ -5,8 +5,10 @@ use warnings;
 
 use Data::Validate::Type;
 use Test::Builder::Tester;
+use Test::FailWarnings;
 use Test::More tests => 7;
 use Test::Type;
+
 
 {
 	test_out( 'ok 1 - Variable is a hashref (allow empty, allow blessed).' );

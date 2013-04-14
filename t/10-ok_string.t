@@ -4,8 +4,10 @@ use strict;
 use warnings;
 
 use Test::Builder::Tester;
+use Test::FailWarnings;
 use Test::More tests => 5;
 use Test::Type;
+
 
 {
 	test_out( 'ok 1 - Variable is a string (allow empty).' );
