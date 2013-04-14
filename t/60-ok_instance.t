@@ -9,8 +9,6 @@ use Test::More tests => 3;
 use Test::Type;
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Variable is an instance of TestBless.' );
 	
 	ok_instance(
@@ -28,8 +26,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'not ok 1 - Variable is an instance of TestBless.' );
 	
 	ok_instance(
@@ -47,8 +43,6 @@ use Test::Type;
 }
 
 {
-	test_out( '1..1' )
-		if $Test::More::VERSION >= 1.005000005;
 	test_out( 'ok 1 - Object is an instance of TestBless.' );
 	
 	ok_instance(
