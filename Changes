@@ -1,19 +1,19 @@
 Revision history for Test-Type
 
-v1.1.1  10/03/2012
+v1.1.1  2012-10-03
         * Required Exporter v5.57.
 
-v1.1.0  09/24/2012
+v1.1.0  2012-09-24
         * Relicensed as GPLv3 for inclusion in Fedora.
 
-v1.0.2  09/22/2012
+v1.0.2  2012-09-22
         * Moved repository to GitHub.
         * Cleaned up requires vs build_requires.
 
-v1.0.1  07/30/2012
+v1.0.1  2012-07-30
         * Made code portable on pre-5.10 versions of Perl (RT #78657).
           Thanks to dirkus@yo****.com for reporting the problem!
         * Updated dependency version for Data::Validate::Type.
 
-v1.0.0  07/29/2012
+v1.0.0  2012-07-29
         * Public release.
