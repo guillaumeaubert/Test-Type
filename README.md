@@ -1,8 +1,13 @@
 Test-Type
+=========
+
+[![Build Status](https://travis-ci.org/guillaumeaubert/Test-Type.png?branch=master)](https://travis-ci.org/guillaumeaubert/Test-Type)
 
 Test::Type offers functions to validate data types in test files.
 
+
 INSTALLATION
+------------
 
 To install this module, run the following commands:
 
@@ -11,29 +16,33 @@ To install this module, run the following commands:
 	./Build test
 	./Build install
 
+
 SUPPORT AND DOCUMENTATION
+-------------------------
 
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc Test::Type
+	perldoc Test::Type
+
 
 You can also look for information at:
 
-    GitHub (report bugs here)
-        https://github.com/guillaumeaubert/Test-Type/issues
+ * [GitHub (report bugs here)]
+   (https://github.com/guillaumeaubert/Test-Type/issues)
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Test-Type
+ * [AnnoCPAN, Annotated CPAN documentation]
+   (http://annocpan.org/dist/Test-Type)
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Test-Type
+ * [CPAN Ratings]
+   (http://cpanratings.perl.org/d/Test-Type)
 
-    MetaCPAN
-        https://metacpan.org/release/Test-Type
+ * [MetaCPAN]
+   (https://metacpan.org/release/Test-Type)
 
 
 LICENSE AND COPYRIGHT
+---------------------
 
 Copyright (C) 2012-2013 Guillaume Aubert
 
