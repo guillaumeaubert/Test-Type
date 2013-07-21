@@ -485,11 +485,6 @@ sub ok_instance
 }
 
 
-=head1 AUTHOR
-
-Guillaume Aubert, C<< <aubertg at cpan.org> >>.
-
-
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-test-dist-versionsync at rt.cpan.org>, or through
@@ -533,6 +528,12 @@ Search CPAN
 L<https://metacpan.org/release/Test-Type>
 
 =back
+
+
+=head1 AUTHOR
+
+L<Guillaume Aubert|https://metacpan.org/author/AUBERTG>,
+C<< <aubertg at cpan.org> >>.
 
 
 =head1 COPYRIGHT & LICENSE
