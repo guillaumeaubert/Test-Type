@@ -26,42 +26,42 @@ our $VERSION = '1.1.2';
 =head1 SYNOPSIS
 
 	use Test::Type;
-	
+
 	# Test strings.
 	ok_string( $variable );
 	ok_string(
 		$variable,
 		name => 'My variable',
 	);
-	
+
 	# Test arrayrefs.
 	ok_arrayref( $variable );
 	ok_arrayref(
 		$variable,
 		name => 'My variable',
 	);
-	
+
 	# Test hashrefs.
 	ok_hashref( $variable );
 	ok_hashref(
 		$variable,
 		name => 'Test variable',
 	);
-	
+
 	# Test coderefs.
 	ok_coderef( $variable );
 	ok_coderef(
 		$variable,
 		name => 'Test variable',
 	);
-	
+
 	# Test numbers.
 	ok_number( $variable );
 	ok_number(
 		$variable,
 		name => 'Test variable',
 	);
-	
+
 	# Test instances.
 	ok_instance(
 		$variable,
@@ -95,12 +95,12 @@ Test if the variable passed is a string.
 	ok_string(
 		$variable,
 	);
-	
+
 	ok_string(
 		$variable,
 		name => 'My variable',
 	);
-	
+
 	ok_string(
 		$variable,
 		name        => 'My variable',
@@ -126,7 +126,7 @@ Boolean, default 1. Allow the string to be empty or not.
 sub ok_string
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
@@ -134,13 +134,13 @@ sub ok_string
 	$allow_empty = 1 if !defined( $allow_empty );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	my @test_properties = ();
 	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
 	my $test_properties = scalar( @test_properties ) == 0
 		? ''
 		: ' (' . join( ', ', @test_properties ) . ')';
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_string(
 			$variable,
@@ -157,18 +157,18 @@ Test if the variable passed is an arrayref that can be dereferenced into an
 array.
 
 	ok_arrayref( $variable );
-	
+
 	ok_arrayref(
 		$variable,
 		name => 'My variable',
 	);
-	
+
 	ok_arrayref(
 		$variable,
 		allow_empty => 1,
 		no_blessing => 0,
 	);
-	
+
 	# Check if the variable is an arrayref of hashrefs.
 	ok_arrayref(
 		$variable,
@@ -210,7 +210,7 @@ must return a boolean indicating whether the element was valid or not.
 sub ok_arrayref
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
@@ -221,7 +221,7 @@ sub ok_arrayref
 	my $element_validate_type = delete( $args{'element_validate_type'} );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	my @test_properties = ();
 	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
 	push( @test_properties, $no_blessing ? 'no blessing' : 'allow blessed' );
@@ -230,7 +230,7 @@ sub ok_arrayref
 	my $test_properties = scalar( @test_properties ) == 0
 		? ''
 		: ' (' . join( ', ', @test_properties ) . ')';
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_arrayref(
 			$variable,
@@ -248,12 +248,12 @@ sub ok_arrayref
 Test if the variable passed is a hashref that can be dereferenced into a hash.
 
 	ok_hashref( $variable );
-	
+
 	ok_hashref(
 		$variable,
 		name => 'Test variable',
 	);
-	
+
 	ok_hashref(
 		$variable,
 		allow_empty => 1,
@@ -283,7 +283,7 @@ Boolean, default 0. Require that the variable is not blessed.
 sub ok_hashref
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
@@ -293,14 +293,14 @@ sub ok_hashref
 	$no_blessing =  0 if !defined( $no_blessing );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	my @test_properties = ();
 	push( @test_properties, $allow_empty ? 'allow empty' : 'non-empty' );
 	push( @test_properties, $no_blessing ? 'no blessing' : 'allow blessed' );
 	my $test_properties = scalar( @test_properties ) == 0
 		? ''
 		: ' (' . join( ', ', @test_properties ) . ')';
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_hashref(
 			$variable,
@@ -318,7 +318,7 @@ Test if the variable passed is an coderef that can be dereferenced into a block
 of code.
 
 	ok_coderef( $variable );
-	
+
 	ok_coderef(
 		$variable,
 		name => 'Test variable',
@@ -339,13 +339,13 @@ Optional, the name of the variable being tested.
 sub ok_coderef
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_coderef(
 			$variable,
@@ -360,17 +360,17 @@ sub ok_coderef
 Test if the variable passed is a number.
 
 	ok_number( $variable );
-	
+
 	ok_number(
 		$variable,
 		name => 'Test variable',
 	);
-	
+
 	ok_number(
 		$variable,
 		positive => 1,
 	);
-	
+
 	ok_number(
 		$variable,
 		strictly_positive => 1,
@@ -399,7 +399,7 @@ Boolean, default 0. Set to 1 to check for a positive number.
 sub ok_number
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
@@ -409,7 +409,7 @@ sub ok_number
 	$positive = 0 if !defined( $positive );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	my @test_properties = ();
 	push( @test_properties, 'strictly positive' )
 		if $strictly_positive;
@@ -418,7 +418,7 @@ sub ok_number
 	my $test_properties = scalar( @test_properties ) == 0
 		? ''
 		: ' (' . join( ', ', @test_properties ) . ')';
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_number(
 			$variable,
@@ -441,7 +441,7 @@ variable is an instance of a subclass of the class given.
 		$variable,
 		class => $class,
 	);
-	
+
 	ok_instance(
 		$variable,
 		name  => 'Test variable',
@@ -467,14 +467,14 @@ Required, the name of the class to check the variable against.
 sub ok_instance
 {
 	my ( $variable, %args ) = @_;
-	
+
 	# Verify arguments and set defaults.
 	my $name = delete( $args{'name'} );
 	$name = 'Variable' if !defined( $name );
 	my $class = delete( $args{'class'} );
 	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
 		if scalar( keys %args ) != 0;
-	
+
 	return Test::More::ok(
 		Data::Validate::Type::is_instance(
 			$variable,

@@ -12,7 +12,7 @@ use Test::Type;
 
 {
 	test_out( 'ok 1 - Variable is an instance of TestBless.' );
-	
+
 	ok_instance(
 		bless(
 			{},
@@ -20,7 +20,7 @@ use Test::Type;
 		),
 		class => 'TestBless',
 	);
-	
+
 	test_test(
 		name     => "Test without arguments.",
 		skip_err => 1,
@@ -29,7 +29,7 @@ use Test::Type;
 
 {
 	test_out( 'not ok 1 - Variable is an instance of TestBless.' );
-	
+
 	ok_instance(
 		bless(
 			{},
@@ -37,7 +37,7 @@ use Test::Type;
 		),
 		class => 'TestBless',
 	);
-	
+
 	test_test(
 		name     => "Test a variable that is not an instance of the specified class.",
 		skip_err => 1,
@@ -46,7 +46,7 @@ use Test::Type;
 
 {
 	test_out( 'ok 1 - Object is an instance of TestBless.' );
-	
+
 	ok_instance(
 		bless(
 			{},
@@ -55,7 +55,7 @@ use Test::Type;
 		class => 'TestBless',
 		name  => 'Object',
 	);
-	
+
 	test_test(
 		name     => "Test specifying the variable name.",
 		skip_err => 1,
