@@ -1,5 +1,11 @@
 Revision history for Test-Type
 
+v1.1.3  2014-04-20
+        - Fixed "package version matches dist version" for CPANTS.
+        - Fixed license declared in meta files.
+        - Switched readme to use markdown.
+        - General cleanup.
+
 v1.1.2  2013-04-13
         - Removed Test::More 1.5 specific code that is no longer needed (thanks
           Colin Newell).
