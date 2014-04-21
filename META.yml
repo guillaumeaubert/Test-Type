@@ -3,28 +3,28 @@ abstract: 'Functions to validate data types in test files.'
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
-  File::Spec: 0
-  Test::Builder::Tester: 0
-  Test::FailWarnings: 0
+  File::Spec: '0'
+  Test::Builder::Tester: '0'
+  Test::FailWarnings: '0'
 configure_requires:
-  Module::Build: 0
+  Module::Build: '0'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4005, CPAN::Meta::Converter version 2.131560'
-license: open_source
+generated_by: 'Module::Build version 0.4205, CPAN::Meta::Converter version 2.140640'
+license: gpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Test-Type
 provides:
   Test::Type:
     file: lib/Test/Type.pm
     version: v1.1.2
 requires:
-  Carp: 0
-  Data::Validate::Type: 1.002000
-  Exporter: 5.57
-  Test::More: 0.94
-  perl: 5.006
+  Carp: '0'
+  Data::Validate::Type: '1.002000'
+  Exporter: '5.57'
+  Test::More: '0.94'
+  perl: '5.006'
 resources:
   bugtracker: https://github.com/guillaumeaubert/Test-Type/issues
   homepage: https://metacpan.org/release/Test-Type
