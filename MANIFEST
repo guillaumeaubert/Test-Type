@@ -19,6 +19,7 @@ t/30-ok_hashref.t
 t/40-ok_coderef.t
 t/50-ok_number.t
 t/60-ok_instance.t
+t/70-ok_regex.t
 xt/changes.t
 xt/kwalitee.t
 xt/manifest.t
