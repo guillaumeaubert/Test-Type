@@ -6,9 +6,14 @@ use warnings;
 use Data::Validate::Type;
 use Test::Builder::Tester;
 use Test::FailWarnings;
-use Test::More tests => 7;
+use Test::More tests => 8;
 use Test::Type;
 
+
+can_ok(
+	'Test::Type',
+	'ok_hashref',
+);
 
 {
 	test_out( 'ok 1 - Variable is a hashref (allow empty, allow blessed).' );

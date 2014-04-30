@@ -5,9 +5,14 @@ use warnings;
 
 use Test::Builder::Tester;
 use Test::FailWarnings;
-use Test::More tests => 5;
+use Test::More tests => 6;
 use Test::Type;
 
+
+can_ok(
+	'Test::Type',
+	'ok_string',
+);
 
 {
 	test_out( 'ok 1 - Variable is a string (allow empty).' );
