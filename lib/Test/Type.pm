@@ -73,6 +73,13 @@ our $VERSION = '1.1.3';
 		class => $class,
 	);
 
+	# Test regular expressions.
+	ok_regex( $variable );
+	ok_regex(
+		$variable,
+		name => 'Test regular expression',
+	);
+
 =cut
 
 our @EXPORT = ## no critic (Modules::ProhibitAutomaticExportation)
@@ -83,6 +90,7 @@ our @EXPORT = ## no critic (Modules::ProhibitAutomaticExportation)
 	'ok_instance',
 	'ok_number',
 	'ok_string',
+	'ok_regex',
 );
 
 
@@ -481,6 +489,31 @@ sub ok_instance
 			class => $class,
 		),
 		$name . ' is an instance of ' . $class . '.',
+	);
+}
+
+
+=head2 ok_regex()
+
+Test if the variable is a regular expression.
+
+	ok_regex( $variable );
+
+=cut
+
+sub ok_regex
+{
+	my ( $variable, %args ) = @_;
+
+	# Verify arguments and set defaults.
+	my $name = delete( $args{'name'} );
+	$name = 'Variable' if !defined( $name );
+	Carp::croak( 'Unknown parameter(s): ' . join( ', ', keys %args ) . '.' )
+		if scalar( keys %args ) != 0;
+
+	return Test::More::ok(
+		Data::Validate::Type::is_regex( $variable ),
+		$name . ' is a regular expression.',
 	);
 }
 
