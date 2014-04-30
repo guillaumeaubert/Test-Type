@@ -21,7 +21,7 @@ provides:
     version: v1.1.3
 requires:
   Carp: '0'
-  Data::Validate::Type: '1.002000'
+  Data::Validate::Type: '1.005000'
   Exporter: '5.57'
   Test::More: '0.94'
   perl: '5.006'

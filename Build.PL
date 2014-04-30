@@ -49,7 +49,7 @@ my $builder = $class->new(
 	{
 		'perl'                  => 5.006,
 		'Carp'                  => '0',
-		'Data::Validate::Type'  => '1.2.0',
+		'Data::Validate::Type'  => '1.5.0',
 		'Exporter'              => '5.57', # required for "use Exporter qw( import );"
 		'Test::More'            => '0.94',
 	},
