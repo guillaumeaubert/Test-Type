@@ -1,8 +1,8 @@
 Test-Type
 =========
 
-[![Build Status](https://travis-ci.org/guillaumeaubert/Test-Type.png?branch=master)](https://travis-ci.org/guillaumeaubert/Test-Type)
-[![Coverage Status](https://coveralls.io/repos/guillaumeaubert/Test-Type/badge.png?branch=master)](https://coveralls.io/r/guillaumeaubert/Test-Type?branch=master)
+[![Build Status](https://travis-ci.org/guillaumeaubert/Test-Type.svg?branch=master)](https://travis-ci.org/guillaumeaubert/Test-Type)
+[![Coverage Status](https://coveralls.io/repos/guillaumeaubert/Test-Type/badge.svg?branch=master)](https://coveralls.io/r/guillaumeaubert/Test-Type?branch=master)
 
 Test::Type offers functions to validate data types in test files.
 
