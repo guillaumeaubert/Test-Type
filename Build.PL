@@ -41,7 +41,6 @@ my $builder = $class->new(
 	dist_version_from   => 'lib/Test/Type.pm',
 	build_requires      =>
 	{
-		'File::Spec'            => '0',
 		'Test::Builder::Tester' => '0',
 		'Test::FailWarnings'    => '0',
 	},
