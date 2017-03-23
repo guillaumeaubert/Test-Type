@@ -38,7 +38,7 @@
    "provides" : {
       "Test::Type" : {
          "file" : "lib/Test/Type.pm",
-         "version" : "v1.2.0"
+         "version" : "v1.3.0"
       }
    },
    "release_status" : "stable",
@@ -54,5 +54,5 @@
          "url" : "https://github.com/guillaumeaubert/Test-Type"
       }
    },
-   "version" : "v1.2.0"
+   "version" : "v1.3.0"
 }
